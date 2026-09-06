@@ -5,3 +5,7 @@ if (!token) {
   throw new Error('TINKOFF_API_TOKEN не задан')
 }
 const api = new TinkoffInvestApi({token});
+
+const {accounts} = await api.users.getAccounts({});
+
+console.log(accounts)
