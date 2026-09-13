@@ -1,8 +1,5 @@
 import 'dotenv/config'
 import {TinkoffInvestApi} from 'tinkoff-invest-api'
-import * as grpc from '@grpc/grpc-js'
-
-// yarn ts-node-dev index.ts
 
 async function main() {
   const token = process.env.TINKOFF_API_TOKEN;
