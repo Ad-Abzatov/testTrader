@@ -1,7 +1,18 @@
+import 'dotenv/config'
 import {TinkoffInvestApi} from 'tinkoff-invest-api'
 
-const token = process.env.TINKOFF_API_TOKEN;
-if (!token) {
-  throw new Error('TINKOFF_API_TOKEN не задан')
+async function main() {
+  const token = process.env.TINKOFF_API_TOKEN;
+
+  if (!token) {
+    throw new Error('TINKOFF_API_TOKEN не задан')
+  }
+
+  const api = new TinkoffInvestApi(token);
+
+  const {accounts} = await api.users.getAccounts({});
+
+  console.log(accounts)
 }
-const api = new TinkoffInvestApi({token});
+
+main().catch(console.error)
